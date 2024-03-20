@@ -1,0 +1,7 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "bot\ndocs\nhost.json\nLICENSE\nlocal.settings.json\npackage-lock.json\npackage.json\nproxies.json\nREADME.md\ntsconfig.json\nwarmup",
+    "FUNCTIONS_WORKER_RUNTIME": "node"
+  }
+}
