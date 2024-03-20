@@ -16,7 +16,7 @@
     "clean:build": "rimraf ./dist-deploy"
   },
   "dependencies": {
-    "@azure/functions": "^4.3.0",
+    "@azure/functions": "^1.2.3",
     "@types/node": "^20.11.30",
     "@vercel/ncc": "^0.38.1",
     "azure-function-log-intercept": "^1.1.4",

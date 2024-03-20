@@ -3,11 +3,11 @@
  * When running in production mode, a webhook is used.
  */
 
-import { Telegraf } from 'telegraf';
-import { AzureFunction, Context, HttpRequest } from '@azure/functions';
+import {Telegraf} from 'telegraf';
 import intercept from 'azure-function-log-intercept';
 import { throwIfNo } from './utils/throwIf';
 import { setBotCommands } from './commands/botCommands';
+import {AzureFunction, Context, HttpRequest} from "@azure/functions";
 
 require('dotenv').config();
 
