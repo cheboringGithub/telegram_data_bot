@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ea37c3d-674c-40e6-ada3-1fa80cfc650f" name="Changes" comment="created initial bot structure" />
+    <list default="true" id="5ea37c3d-674c-40e6-ada3-1fa80cfc650f" name="Changes" comment="created remote function">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main_telegramdatabot.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +58,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "project-strucutre-creation",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -132,6 +137,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created initial bot structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="created initial bot structure" />
+    <MESSAGE value="created remote function" />
+    <option name="LAST_COMMIT_MESSAGE" value="created remote function" />
   </component>
 </project>

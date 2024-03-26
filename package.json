@@ -1,30 +1,22 @@
 {
-  "name": "telegram-bot-nodejs-azure-function-starter",
+  "name": "telegram_bots",
   "version": "1.0.0",
-  "description": "",
-  "main": "build/index.js",
+  "description": "bot for gathering personal data",
+  "main": "index.ts",
   "scripts": {
-    "start": "func start",
-    "build": "rimraf ./dist && tsc",
-    "watch": "rimraf ./dist && tsc -w --inlineSourceMap",
-    "--- Prod build ---": "---",
-    "deploy:function": "npm-run-all clean:build build --parallel build:ncc:bot build:ncc:warmup --sequential build:clean:packagejson build:copy:runtimefiles",
-    "build:ncc:bot": "ncc build dist/bot/index.js -m --no-source-map-register -o dist-deploy/dist/bot",
-    "build:ncc:warmup": "ncc build dist/warmup/index.js -m --no-source-map-register -o dist-deploy/dist/warmup",
-    "build:copy:runtimefiles": "copyfiles host.json proxies.json **/function.json -e dist-deploy/** dist-deploy",
-    "build:clean:packagejson": "rimraf ./dist-deploy/**/package.json",
-    "clean:build": "rimraf ./dist-deploy"
+    "start_bot": "ts-node indexLocal.ts"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@azure/functions": "^1.2.3",
-    "@types/node": "^20.11.30",
-    "@vercel/ncc": "^0.38.1",
+    "@azure/functions": "^4.3.0",
     "azure-function-log-intercept": "^1.1.4",
-    "copyfiles": "^2.4.1",
     "dotenv": "^16.4.5",
-    "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2",
-    "telegraf": "^4.16.3",
-    "typescript": "^5.4.2"
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/azure-function-log-intercept": "^1.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
