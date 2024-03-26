@@ -1,44 +1,33 @@
 import {Telegraf} from "telegraf";
-import {data} from "./data";
-
-const token: string = '6349262148:AAGxPylFl1Rh_sYIayTOi_591sGyd7lgFso';
-
-
-(async function launcher(): Promise<void> {
-    const bot: Telegraf = new Telegraf(token);
-    await bot.telegram.setMyCommands([{command: 'data', description: 'Get Your Personal Data'}]);
-
-    bot.command("data", (ctx) => {
-
-        ctx.reply("Select your personal data", {
-            reply_markup: {
-                inline_keyboard: [
-                    /* Inline buttons. 2 side-by-side */
-                    [ { text: "Phone number", callback_data: "phone" } ],
-
-                    /* One button */
-                    [ { text: "PESEL", callback_data: 'pesel' } ],
-
-                    /* Also, we can have URL buttons. */
-                    [ { text: "NIP", callback_data: "nip" } ]
-                ]
-            }
-        });
-    });
-
-    bot.action('pesel', (ctx) => {
-        ctx.sendMessage( data.Pesel);
-    })
-
-    bot.action('phone', (ctx) => {
-       ctx.sendMessage(data.phoneNumber);
-    });
-
-    bot.action('nip', (ctx) => {
-        ctx.sendMessage(data.NIP);
-    });
+import 'dotenv/config'
+import {app, HttpRequest, HttpResponseInit} from "@azure/functions";
 
 
-    await bot.launch();
-})();
+const token = process.env["BOT_TOKEN"];
+if(!token) throw new Error('Bot token is not provided');
+
+let bot: Telegraf;
+bot = new Telegraf(token, {
+    telegram: { webhookReply: true }
+} );
+bot.telegram.setWebhook('https://telegramdatabot.azurewebsites.net');
+bot.command('hello', (ctx) => ctx.reply('world'));
+
+
+
+export async function httpTrigger1(request: HttpRequest): Promise<HttpResponseInit> {
+    const rawBody = await request.json();
+    if (typeof rawBody === "string") {
+        await bot.handleUpdate(JSON.parse(rawBody));
+    }
+    const name = request.query.get('name') || await request.text() || 'world';
+
+    return { body: `Hello, ${name}!` };
+}
+
+app.http('httpTrigger1', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: httpTrigger1
+});
 

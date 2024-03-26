@@ -2,16 +2,20 @@
   "name": "telegram_bots",
   "version": "1.0.0",
   "description": "bot for gathering personal data",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "start_bot": "ts-node index.ts"
+    "start_bot": "ts-node indexLocal.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@azure/functions": "^4.3.0",
+    "azure-function-log-intercept": "^1.1.4",
+    "dotenv": "^16.4.5",
     "telegraf": "^4.16.3"
   },
   "devDependencies": {
+    "@types/azure-function-log-intercept": "^1.0.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
